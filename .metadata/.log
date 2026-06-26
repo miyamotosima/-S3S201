@@ -334,3 +334,15 @@ java.io.IOException: Could not find the language server binary
 
 !ENTRY org.eclipse.lsp4e 2 0 2026-06-26 10:24:55.533
 !MESSAGE [LS:GitHub Copilot 言語サーバー][Warning]	[McpAutoApproveService] Invalid McpAutoApproveService config, resetting to empty undefined
+
+!ENTRY org.eclipse.ui 2 2 2026-06-26 10:43:31.232
+!MESSAGE 無効なカテゴリー・パス設定: org.jkiss.dbeaver.preferences.main (bundle: org.jkiss.dbeaver.core, page: org.jkiss.dbeaver.preferences.main.toolbar.customization)
+
+!ENTRY org.eclipse.ui 2 2 2026-06-26 10:43:31.234
+!MESSAGE 無効なカテゴリー・パス設定: org.jkiss.dbeaver.preferences.main (bundle: org.jkiss.dbeaver.core, page: org.jkiss.dbeaver.preferences.accessibility)
+
+!ENTRY org.eclipse.ui 2 2 2026-06-26 10:43:31.236
+!MESSAGE 無効なカテゴリー・パス設定: org.jkiss.dbeaver.preferences.main (bundle: org.jkiss.dbeaver.ui.app.eclipse, page: org.jkiss.dbeaver.preferences.main.notifications)
+
+!ENTRY org.eclipse.ui 2 2 2026-06-26 10:43:31.238
+!MESSAGE 無効なカテゴリー・パス設定: org.jkiss.dbeaver.preferences.main (bundle: org.jkiss.dbeaver.ui.app.eclipse, page: org.jkiss.dbeaver.preferences.main.misc)
