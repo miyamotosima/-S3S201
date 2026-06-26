@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リスト登録</title>
+  <link rel="stylesheet" href="css/list_register.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container list-register-screen">
+    
+    <main class="card main-card">
+      
+      <header class="card-header">
+        <a href="list_group.html" class="back-arrow-btn">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <div class="header-title-badge">リスト登録</div>
+      </header>
+
+      <div class="category-tag">
+        <span class="category-name">生活品</span>
+        <i class="fa-solid fa-pen edit-icon-small"></i>
+      </div>
+
+      <div class="items-scroll-area">
+        
+        <div class="item-row">
+          <span class="item-name">・時計</span>
+          <div class="row-actions">
+           <a href="edit_belonging.html" class="action-btn edit"><i class="fa-solid fa-pen"></i><span>編集</span></a>
+            <button type="button" class="action-btn delete" onclick="deleteItem(this)"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div> 
+        </div>
+
+        <div class="item-row">
+          <span class="item-name">・充電器</span>
+          <div class="row-actions">
+           <a href="edit_belonging.html" class="action-btn edit"><i class="fa-solid fa-pen"></i><span>編集</span></a>
+            <button type="button" class="action-btn delete" onclick="deleteItem(this)"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <span class="item-name">・ハンカチ</span>
+          <div class="row-actions">
+            <a href="edit_belonging.html" class="action-btn edit"><i class="fa-solid fa-pen"></i><span>編集</span></a>
+            <button type="button" class="action-btn delete" onclick="deleteItem(this)"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+        </div>
+        </div>
+
+        <div class="item-row">
+          <span class="item-name">・コンタクト</span>
+          <div class="row-actions">
+             <a href="edit_belonging.html" class="action-btn edit"><i class="fa-solid fa-pen"></i><span>編集</span></a>
+            <button type="button" class="action-btn delete" onclick="deleteItem(this)"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="item-row">
+          <span class="item-name">・化粧品</span>
+          <div class="row-actions">
+              <a href="edit_belonging.html" class="action-btn edit"><i class="fa-solid fa-pen"></i><span>編集</span></a>
+            <button type="button" class="action-btn delete" onclick="deleteItem(this)"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+        <div class="item-row empty-row">
+          <button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button>
+        </div>
+
+      </div>
+    </main>
+
+    <div class="action-button-area">
+      <a href="list_group.html" class="btn btn-back">戻る</a>
+      <a href="list_group.html" class="btn btn-submit">登録する</a>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item active">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+<script>
+    function deleteItem(button) {
+      if (confirm("このアイテムをリストから削除しますか？")) {
+        // ボタンの親要素である「行（.item-row）」を取得
+        const row = button.closest('.item-row');
+        
+        // 文字と元のボタンをフワッと消すアニメーション用のクラスをつける
+        row.classList.add('fade-out-text');
+        
+        // アニメーションが終わる0.3秒後の処理
+        setTimeout(() => {
+          // 1. 中身（文字やボタン）を完全に消去して空っぽにする
+          row.innerHTML = '';
+          
+          // 2. この行のスタイルを、他の空行と同じ「中央寄せ（empty-row）」に変える
+          row.classList.add('empty-row');
+          
+          // 3. 新しいプラスボタンのHTMLを作る
+          const plusButton = document.createElement('button');
+          plusButton.className = 'add-row-btn';
+          plusButton.innerHTML = '<i class="fa-solid fa-circle-plus"></i>';
+          
+          // 最初は透明にしておいて、フワッと出す準備をする
+          plusButton.style.opacity = '0';
+          plusButton.style.transition = 'opacity 0.3s ease';
+          
+          // 4. 行の中にプラスボタンを合体させる
+          row.appendChild(plusButton);
+          
+          // 5. 一瞬だけ時間を遅らせて、プラスボタンをフワッと表示させる
+          setTimeout(() => {
+            plusButton.style.opacity = '1';
+          }, 10);
+          
+        }, 300);
+      }
+    }
+  </script>
+</body>
+</html>

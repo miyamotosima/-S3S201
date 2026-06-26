@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鞄一覧</title>
+  <link rel="stylesheet" href="css/bag_list.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container bag-list-screen">
+    
+    <header class="screen-header">
+      <a href="index.html" class="back-arrow-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
+      <div class="header-title-badge">鞄一覧</div>
+    </header>
+
+    <div class="sort-bar">
+      <div class="sort-label">
+        <i class="fa-solid fa-arrows-up-down"></i>
+        <span>追加順</span>
+      </div>
+    </div>
+
+    <main class="main-content-wrapper">
+      
+      <div class="bag-grid-container">
+        
+        <div class="bag-card">
+          <div class="card-header-row">
+          <span class="bag-title">バック1</span>
+
+          <a href="edit_bag.html" class="arrow-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
+        <div class="bag-icon-wrap">
+          <i class="fa-solid fa-bag-shopping bag-silhouette"></i>
+        </div>
+        <button class="delete-card-btn">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+      </div>
+
+
+        <div class="bag-card">
+          <div class="card-header-row">
+            <span class="bag-title">バック2</span>
+            <a href="edit_bag.html" class="arrow-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          </div>
+          <div class="bag-icon-wrap">
+            <i class="fa-solid fa-briefcase bag-silhouette"></i>
+          </div>
+          <button class="delete-card-btn">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+
+        <div class="bag-card">
+          <div class="card-header-row">
+            <span class="bag-title">バック3</span>
+           <a href="edit_bag.html" class="arrow-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          </div>
+          <div class="bag-icon-wrap">
+            <i class="fa-solid fa-basket-shopping bag-silhouette"></i>
+          </div>
+          <button class="delete-card-btn">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+
+        <div class="bag-card">
+          <div class="card-header-row">
+            <span class="bag-title">バック4</span>
+            <a href="edit_bag.html" class="arrow-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          </div>
+          <div class="bag-icon-wrap">
+            <i class="fa-solid fa-vault bag-silhouette"></i> </div>
+          <button class="delete-card-btn">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+
+        <div class="bag-card">
+          <div class="card-header-row">
+            <span class="bag-title">バック5</span>
+            <a href="edit_bag.html" class="arrow-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          </div>
+          <div class="bag-icon-wrap">
+            <i class="fa-solid fa-basket-shopping bag-silhouette color-brown"></i>
+          </div>
+          <button class="delete-card-btn">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+
+        <div class="bag-card">
+          <div class="card-header-row">
+            <span class="bag-title">バック6</span>
+            <a href="edit_bag.html" class="arrow-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          </div>
+          <div class="bag-icon-wrap">
+            <i class="fa-solid fa-bag-shopping bag-silhouette color-yellow"></i>
+          </div>
+          <button class="delete-card-btn">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="side-scrollbar-mock">
+        <i class="fa-solid fa-caret-up scroll-arrow-top"></i>
+        <div class="scroll-line"></div>
+        <i class="fa-solid fa-caret-down scroll-arrow-bottom"></i>
+      </div>
+
+    </main>
+
+    <div class="bottom-action-area">
+      <button class="btn-add-bag" onclick="location.href='add_bag.html'">追加＋</button>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item active">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+     <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>

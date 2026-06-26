@@ -1,0 +1,281 @@
+/* --- 全体共通設定 & 変数 --- */
+:root {
+  --bg-cream: #FFF9D1;
+  --main-green: #6B8E23;
+  --light-green: #A3C9A8;
+  --card-bg-white: #F4F4F4; /* 画像に合わせた少し落ち着いた白グレー */
+  --text-dark: #333333;
+  --btn-orange: #E28743;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+  padding: 16px 14px 140px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- メインの緑フチカード --- */
+.card {
+  background-color: var(--card-bg-white);
+  border: 3px solid var(--main-green);
+  border-radius: 36px;
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+/* 戻る矢印（太緑色） */
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 26px;
+  text-decoration: none;
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  display: flex;
+  align-items: center;
+}
+
+/* 上部中央の「リスト登録」緑タブ */
+.header-title-badge {
+  background-color: var(--main-green);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 36px;
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  top: -19px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- 生活品 🖊️ タグ --- */
+.category-tag {
+  align-self: flex-start;
+  background-color: var(--main-green);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 20px;
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 75% 90%, 0 90%);
+}
+.edit-icon-small {
+  font-size: 11px;
+}
+
+/* --- スクロール可能なアイテム一覧エリア --- */
+.items-scroll-area {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #DDDDDD;
+  overflow-y: auto;
+  padding: 10px 8px 10px 16px;
+}
+
+/* スクロールバーのデザイン */
+.items-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.items-scroll-area::-webkit-scrollbar-thumb {
+  background-color: #CCCCCC;
+  border-radius: 3px;
+}
+
+/* 各行のスタイル（ノートの横線） */
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  border-bottom: 1.5px dashed var(--light-green); /* 黄緑のドット線 */
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+/* 登録済みアイテム名 */
+.item-name {
+  padding-left: 4px;
+}
+
+/* 右側の編集・削除ボタンのグループ */
+.row-actions {
+  display: flex;
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-size: 8px;
+  font-weight: bold;
+  width: 28px;
+}
+.action-btn i {
+  font-size: 14px;
+  margin-bottom: 1px;
+}
+
+/* 編集ボタン（黒） */
+.action-btn.edit {
+  color: #333333;
+}
+/* 削除ボタン（オレンジ） */
+.action-btn.delete {
+  color: var(--btn-orange);
+}
+
+/* 未登録の空行プラスボタン */
+.empty-row {
+  justify-content: flex-start;
+}
+.add-row-btn {
+  background: none;
+  border: none;
+  color: #B0C4DE; /* 控えめなプラス用グレーブルー */
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+/* --- 下部アクションボタン（戻る・登録する） --- */
+.action-button-area {
+  position: absolute;
+  bottom: 76px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 46%;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 戻るボタン（白） */
+.btn-back {
+  background-color: #FFFFFF;
+  color: #333333;
+}
+
+/* 登録するボタン（濃い緑） */
+.btn-submit {
+  background-color: var(--main-green);
+  color: #FFFFFF;
+}
+
+.btn:active {
+  opacity: 0.9;
+}
+
+/* --- 下部フッターナビゲーション（共通） --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }
+
+/* --- 追加：編集リンクのスタイル調整と削除アニメーション --- */
+
+/* 編集リンクの初期デザイン（下線消去など） */
+.action-btn.edit {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* 行が消えるときのスムーズなアニメーション設定 */
+.item-row {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ゴミ箱を押した直後に適用されるクラス */
+.item-row.fade-out {
+  opacity: 0;
+  transform: translateX(-20px); /* 左にスライドしながらフワッと消える */
+}
+
+/* 追加：行を残して中身だけを消すアニメーション */
+.item-row .item-name,
+.item-row .row-actions {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ゴミ箱を押したときに、文字とボタンだけを透明にする */
+.item-row.fade-out-text .item-name,
+.item-row.fade-out-text .row-actions {
+  opacity: 0;
+  transform: translateY(5px); /* ちょっと下に落ちながら消える */
+}

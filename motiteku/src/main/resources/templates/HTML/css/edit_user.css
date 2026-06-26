@@ -1,0 +1,217 @@
+/* --- 全体共通設定 --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* スマホサイズのコンテナ（全体を横並びの2つのエリアに分ける） */
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  height: 100vh;
+  background-color: #EEEEEE; /* 画像のメイン背景の薄いグレー */
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex; /* 左のタイトルと右のフォームを横並びに */
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- 左側：縦書きタイトルエリア --- */
+
+
+/* --- 右側：メインフォームエリア --- */
+.form-container {
+  flex: 1; /* 残りの画面幅をすべて使う */
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* コンテンツが増えてもスクロールできるように */
+}
+
+/* 画面最上部のタイトル */
+.form-title {
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  color: #111111;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+/* 各入力項目の外枠ブロック */
+.form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ラベル部分のスタイル */
+.form-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 必須マーク（*） */
+.required {
+  color: #FF5722;
+  margin-left: 2px;
+}
+
+/* オレンジのエラーメッセージ表示 */
+.error-msg {
+  color: #FF7043;
+  font-size: 11px;
+  font-weight: normal;
+  margin-left: auto; /* 右端に寄せる */
+}
+
+/* --- 入力フォーム共通の見た目（グレーのハッキリしたフチ線） --- */
+.form-control {
+  width: 100%;
+  height: 32px;
+  background-color: #FFFFFF;
+  border: 2px solid #A6A6A6; /* 画像の特徴的なグレーの太めフチ線 */
+  padding: 0 8px;
+  font-size: 14px;
+  color: #222222;
+  outline: none;
+  border-radius: 0; /* 四角形にする */
+}
+
+/* 短い入力欄（生年月日用） */
+.short-input {
+  width: 50%;
+}
+
+/* --- 地域（プルダウン横並び）のレイアウト --- */
+.location-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* プルダウンの右側矢印をカスタム（ブラウザ標準を消す） */
+.select-wrapper {
+  position: relative;
+  width: 50%;
+}
+.select-wrapper.full-width {
+  width: 100%;
+}
+
+.select-input {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 24px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+}
+
+.unit-text {
+  font-size: 11px;
+  color: #333333;
+  white-space: nowrap;
+}
+
+/* --- 性別（ラジオボタン）のレイアウト --- */
+.radio-group {
+  display: flex;
+  gap: 40px;
+  padding-top: 4px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 本物のラジオボタンは非表示にして自作する（画像通りの太いグレーフチにするため） */
+.radio-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-radio {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #A6A6A6;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: inline-block;
+  position: relative;
+}
+
+/* 選択されたときの中心のグレー丸 */
+.radio-label input:checked ~ .custom-radio::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #777777; /* 画像の中央の丸の色 */
+}
+
+/* --- 下部ボタンエリア --- */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 0 10px;
+}
+
+/* ボタン共通設定 */
+.btn {
+  width: 42%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 戻るボタン（白背景＋グレーフチ） */
+.btn-back {
+  background-color: #FFFFFF;
+  border: 2px solid #A6A6A6;
+  color: #111111;
+}
+
+/* 登録ボタン（薄い青背景＋グレーフチ） */
+.btn-submit {
+  background-color: #CBEBFC; /* 画像の淡いブルー */
+  border: 2px solid #A6A6A6;
+  color: #111111;
+}
+
+.btn:active {
+  opacity: 0.8;
+}
+.city-input {
+  width: 32%; /* 都道府県のプルダウンと同じ幅に設定 */
+}

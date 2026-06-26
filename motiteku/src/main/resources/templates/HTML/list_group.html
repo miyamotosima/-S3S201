@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リスト一覧</title>
+  <link rel="stylesheet" href="css/list_group.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container list-group-screen">
+    
+    <header class="screen-header">
+      <a href="index.html" class="back-arrow-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
+      <div class="header-title-badge">リスト一覧</div>
+    </header>
+
+    <div class="sort-area">
+      <div class="sort-trigger">
+        <i class="fa-solid fa-arrow-down-up-across-line"></i>
+        <span>追加順</span>
+      </div>
+    </div>
+
+    <main class="scroll-main-container">
+
+      <div class="list-card">
+        <div class="card-tag">バイト</div>
+        <div class="card-content">
+          <div class="items-grid">
+            <span class="item-text">・時計</span>
+            <span class="item-text">・ハンカチ</span>
+          </div>
+          <a href="#" class="detail-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <button class="card-delete-btn " onclick="deleteCard(this)">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="list-card">
+        <div class="card-tag">旅行向け</div>
+        <div class="card-content">
+          <div class="items-grid two-columns">
+            <span class="item-text">・充電器</span>
+            <span class="item-text">・着替え</span>
+            <span class="item-text">・コンタクト</span>
+            <span class="item-text">・シャンプー</span>
+            <span class="item-text">・アイロン</span>
+            <span class="item-text">・化粧品</span>
+          </div>
+          <a href="#" class="detail-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <button class="card-delete-btn" onclick="deleteCard(this)">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="list-card">
+        <div class="card-tag">学校向け</div>
+        <div class="card-content">
+          <div class="items-grid two-columns">
+            <span class="item-text">・化粧品</span>
+            <span class="item-text">・コンタクト</span>
+            <span class="item-text">・時計</span>
+            <span class="item-text">・</span> <span class="item-text">・ハンカチ</span>
+          </div>
+          <a href="#" class="detail-link">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+          <button class="card-delete-btn" onclick="deleteCard(this)">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    
+  
+
+    <div class="bottom-action-area">
+      <button type="button" class="btn btn-add-group" onclick="location.href='list_register.html'">追加 ＋</button>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item active">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <script>
+    function deleteCard(button) {
+      // 念のため「本当に消しますか？」という確認画面を出す
+      if (confirm("このリストを削除してもよろしいですか？")) {
+        // ボタンから見て、一番近い「.list-card」という親要素（カード全体）を探す
+        const card = button.closest('.list-card');
+        
+        // カードにフワッと消えるアニメーション用のクラスをつける
+        card.classList.add('fade-out');
+        
+        // アニメーションが終わる0.3秒後に、画面から完全に削除する
+        setTimeout(() => {
+          card.remove();
+        }, 300);
+      }
+    }
+  </script>
+
+</body>
+</html>

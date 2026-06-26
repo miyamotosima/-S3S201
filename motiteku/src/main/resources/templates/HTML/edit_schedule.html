@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>編集予定</title>
+  <link rel="stylesheet" href="css/edit_schedule.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container add-screen">
+    
+    <main class="card main-card">
+      
+      <header class="card-header">
+        <a href="index.html" class="back-arrow-btn">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <h2 class="screen-title">編集予定</h2>
+      </header>
+
+      <form>
+        <div class="form-group title-group">
+          <input type="text" placeholder="タイトル" class="title-input">
+        </div>
+
+        <div class="form-group toggle-group">
+          <span class="label-text">終日予定</span>
+          <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="form-group datetime-group">
+          <div class="datetime-row">
+            <span class="label-text">開始</span>
+            <div class="date-box">2025/4/10/(木)</div>
+            <div class="time-box">8:00</div>
+          </div>
+          <div class="datetime-row">
+            <span class="label-text">終了</span>
+            <div class="date-box">2025/4/10/(木)</div>
+            <div class="time-box">9:00</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3 class="section-label">補完設定</h3>
+          <div class="form-group row-group">
+            <span class="label-text indent">補完期限</span>
+            <div class="select-box-styled">なし</div>
+          </div>
+          <div class="form-group row-group">
+            <span class="label-text indent">間隔</span>
+            <div class="select-box-styled">2日おき</div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3 class="section-label">カラータグ</h3>
+          
+          <div class="form-group tag-row">
+            <span class="circle-indicator blue"></span>
+            <div class="tag-name-box">自宅</div>
+            <label class="custom-checkbox-container">
+              <input type="checkbox" checked>
+              <span class="checkbox-box orange-border"></span>
+            </label>
+          </div>
+
+          <div class="form-group tag-row">
+            <span class="circle-indicator purple"></span>
+            <div class="tag-name-box">職場</div>
+            <label class="custom-checkbox-container">
+              <input type="checkbox">
+              <span class="checkbox-box"></span>
+            </label>
+          </div>
+
+          <div class="form-group add-tag-row">
+            <span class="label-text">カラータグ追加</span>
+            <div class="rainbow-circle"></div>
+          </div>
+        </div>
+
+      </form>
+    </main>
+
+    <div class="action-button-area">
+      <a href="index.html" class="btn btn-cancel">キャンセル</a>
+      <button type="button" class="btn btn-save" onclick="location.href='index.html'">保存</button>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+     <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>

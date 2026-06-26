@@ -1,0 +1,237 @@
+/* --- 全体共通設定 & 変数 --- */
+:root {
+  --bg-cream: #FFF5BC;       /* 画面全体の薄黄色 */
+  --main-green: #6B8E23;     /* テーマカラーの深緑（ヘッダー・ボタン） */
+  --light-green: #7BB367;    /* カードの枠線や矢印の黄緑 */
+  --card-bg-white: #F4F4F4;  /* 各カードの背景（ごく僅かにグレーがかった白） */
+  --text-dark: #333333;
+  --delete-orange: #D96B27;  /* ゴミ箱のオレンジ色 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* アプリ全体の画面枠 */
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+  padding: 0 16px 140px 24px; /* 右側はスクロールバーの隙間のため少し狭く調整 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ヘッダー（右上がりの形状を再現） --- */
+.screen-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  height: 48px;
+  margin-bottom: 4px;
+}
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 28px;
+  text-decoration: none;
+  position: absolute;
+  left: -8px;
+  top: 14px;
+}
+.header-title-badge {
+  background-color: var(--main-green);
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  padding: 8px 45px 10px 45px;
+  border-radius: 0 0 0 24px;
+  box-shadow: -2px 2px 4px rgba(0,0,0,0.15);
+}
+
+/* --- 並び替え用バー（追加順） --- */
+.sort-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 32px;
+  margin-bottom: 12px;
+}
+.sort-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #555555;
+}
+
+/* --- メイン領域レイアウト（グリッド＋スクロールバー） --- */
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  padding-right: 24px; /* スクロールバーのための余白 */
+}
+
+/* 鞄カードが並ぶスクロールコンテナ */
+.bag-grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 綺麗な2列配置 */
+  gap: 16px 12px;
+  overflow-y: auto;
+  align-content: flex-start;
+  padding-bottom: 10px;
+}
+.bag-grid-container::-webkit-scrollbar {
+  display: none; /* デフォルトのスクロールバーは隠す */
+}
+
+/* --- 鞄カード単体のデザイン --- */
+.bag-card {
+  background-color: var(--card-bg-white);
+  border: 1.5px solid var(--light-green); /* 緑色の綺麗な細枠 */
+  border-radius: 24px; /* 滑らかな角丸 */
+  padding: 12px 14px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* カード内最上行（タイトルと矢印） */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.bag-title {
+  pointer-events: none; /* 誤クリック防止（任意） */
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px; /* クリックしやすくする */
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bag-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+.arrow-link {
+  color: var(--light-green); /* 黄緑色の右矢印 */
+  font-size: 16px;
+}
+
+/* カバンアイコンの中央配置エリア */
+.bag-icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 10px 0;
+  min-height: 80px;
+}
+.bag-silhouette {
+  font-size: 64px; /* 大きく中央に配置されるシルエット */
+  color: #000000;  /* 基本は黒 */
+}
+/* カラーバリエーション */
+.bag-silhouette.color-brown { color: #A0522D; } /* バック5の茶色 */
+.bag-silhouette.color-yellow { color: #FFCC00; } /* バック6の黄色 */
+
+/* ゴミ箱ボタン（右下配置） */
+.delete-card-btn {
+  background: none;
+  border: none;
+  color: var(--delete-orange); /* オレンジ色 */
+  font-size: 18px;
+  cursor: pointer;
+  align-self: flex-end; /* 右下に寄せる */
+  margin-top: auto;
+}
+
+/* --- 画像右側の極細スクロールバー形状 --- */
+.side-scrollbar-mock {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.scroll-arrow-top, .scroll-arrow-bottom {
+  font-size: 10px;
+  color: #C5C5C5;
+}
+.scroll-line {
+  flex: 1;
+  width: 2px;
+  background-color: #DCDCDC; /* 極細のグレーの線 */
+  margin: 4px 0;
+}
+
+/* --- 下部「追加＋」ボタン --- */
+.bottom-action-area {
+  padding: 16px 0 12px 0;
+  display: flex;
+  justify-content: center;
+}
+.btn-add-bag {
+  width: 100%;
+  height: 54px;
+  background-color: #5D7A1E; /* 画像通りの少し落ち着いた深緑色 */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 16px; /* 角丸長方形 */
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- フッターナビ（バック用） --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }

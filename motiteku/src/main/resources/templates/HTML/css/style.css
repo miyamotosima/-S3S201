@@ -1,0 +1,401 @@
+/* --- 全体リセット & 共通変数 --- */
+:root {
+  --bg-cream: #FFF9D1;
+  --main-green: #6B8E23;
+  --light-green: #A3C9A8;
+  --card-bg-white: #F9F9F9;
+  --text-dark: #333333;
+  --text-gray: #A0A0A0;
+  --sat-blue: #2B6CB0;
+  --sun-red: #C53030;
+  --orange-accent: #E28743;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* スマホ風のコンテナ枠 */
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+    padding-bottom: 70px; /* フッター分の余白 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ヘッダー領域 --- */
+.user-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0 5px 0;
+}
+
+.user-badge {
+  background-color: var(--main-green);
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 20px 0 0 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.user-badge span {
+  font-style: italic;
+  font-size: 11px;
+  margin-right: 8px;
+  opacity: 0.9;
+}
+
+/* --- メインレイアウト --- */
+.main-content {
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* カード共通スタイル */
+.card {
+  background-color: var(--card-bg-white);
+  border-radius: 24px;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* ヘルプの「？」マーク共通 */
+.help-icon {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--text-gray);
+  color: var(--text-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* --- 1. カレンダーセクション --- */
+.calendar-card {
+  border: 3px solid #FFD54F; /* 黄色の外枠線 */
+}
+
+.calendar-header {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.month-eng {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 14px;
+  display: block;
+}
+
+.year-eng {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: #555;
+}
+
+.month-num {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.calendar-table th {
+  font-size: 11px;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  padding-bottom: 8px;
+  color: #333;
+}
+
+.calendar-table td {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 0;
+  color: #111;
+  position: relative;
+  width: 14.28%;
+}
+
+/* 各種曜日の色や前月・翌月 */
+.calendar-table .sat { color: var(--sat-blue); }
+.calendar-table .sun { color: var(--sun-red); }
+.calendar-table .prev-month, 
+.calendar-table .next-month { color: #C0B7B1; font-weight: normal; }
+
+/* 今日の日付（10日）の四角囲み */
+.calendar-table td.today {
+  border: 2px solid #555555;
+  background-color: #EBF3FF;
+}
+
+/* 23日・24日の下線マーカー */
+.calendar-table td.under-green::after {
+  content: ""; position: absolute; bottom: 2px; left: 20%; width: 60%; height: 4px; background-color: #8CD867;
+}
+.calendar-table td.under-orange::after {
+  content: ""; position: absolute; bottom: 2px; left: 20%; width: 60%; height: 4px; background-color: #FFB300;
+}
+
+/* フローティングプラスボタン */
+.fab-btn {
+  position: absolute;
+  right: -8px;
+  bottom: -20px;
+  width: 46px;
+  height: 46px;
+  background-color: var(--orange-accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* --- 2. スケジュールセクション --- */
+.schedule-card {
+  border: 2px solid var(--main-green);
+  padding-top: 30px;
+}
+
+/* 左上の日付バッジ（吹き出し型風） */
+.date-badge {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background-color: var(--main-green);
+  color: white;
+  font-style: italic;
+  font-size: 14px;
+  padding: 4px 16px;
+  border-radius: 4px;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1.5px dotted var(--light-green);
+  min-height: 45px;
+}
+.schedule-item.empty {
+  border-bottom: 1.5px dotted var(--light-green);
+  height: 35px;
+}
+
+.item-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 10px;
+  position: relative;
+  width: 70px;
+}
+
+/* 左側のカラーバー */
+.item-title::before {
+  content: "";
+  position: absolute;
+  left: 0; top: -2px;
+  width: 4px; height: 20px;
+}
+.blue-bar::before { background-color: #4299E1; }
+.red-bar::before { background-color: #C53030; }
+
+.item-time {
+  font-size: 13px;
+  color: #444;
+  flex-grow: 1;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: #333;
+  cursor: pointer;
+}
+.action-btn i {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.action-btn.delete {
+  color: var(--orange-accent);
+}
+
+/* --- 3. 持ち物リストセクション --- */
+.belongings-card {
+  background-color: var(--light-green);
+  border-radius: 24px;
+  padding: 24px 16px 12px 16px;
+}
+
+/* 右上の持ち物リストバッジ */
+.belongings-badge {
+  position: absolute;
+  top: -12px;
+  right: 12px;
+  background-color: var(--main-green);
+  color: white;
+  font-size: 13px;
+  padding: 4px 16px;
+  border-radius: 4px;
+}
+
+.belongings-list {
+  list-style: none;
+}
+
+.belongings-list li {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 0 4px 8px;
+  border-bottom: 1.5px dashed var(--main-green);
+  min-height: 32px;
+}
+.belongings-list li::before {
+  content: "・";
+}
+
+/* 提案・通知エリア（吹き出し風） */
+.suggestion-box {
+  margin-top: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.suggestion-content {
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  flex-grow: 1;
+  position: relative;
+  min-height: 55px;
+}
+
+/* 吹き出しの右側の三角形の突起 */
+.suggestion-content::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent #F5F5F5;
+}
+
+.suggestion-item {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.suggestion-item:last-child { margin-bottom: 0; }
+
+.rain-chance {
+  color: #DD6B20;
+  font-size: 12px;
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+/* オレンジの雲ボタン */
+.cloud-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--orange-accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- 下部フッターナビゲーション --- */
+.footer-nav {
+ position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+}
+
+.nav-item i {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+.nav-item span {
+  font-size: 10px;
+}
+
+/* アクティブ（現在地）のスタイル（文字を白に） */
+.nav-item.active {
+  color: #FFFFFF;
+}

@@ -1,0 +1,277 @@
+/* --- 全体リセット & 共通変数 --- */
+:root {
+  --bg-cream: #FFF9D1;          /* ホーム画面と共通の薄黄色 */
+  --main-green: #6B8E23;        /* テーマカラーの深緑 */
+  --light-green: #A3C9A8;       /* ノート点線用 */
+  --card-bg-white: #F9F9F9;     /* カード背景色 */
+  --text-dark: #333333;
+  --text-gray: #A0A0A0;
+  --action-blue: #3182CE;       /* 「すべて選択」などの青文字用 */
+  --orange-accent: #E28743;     /* ゴミ箱のオレンジ */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* ★ホーム画面と完全に同一に揃えたスマホサイズコンテナ */
+.app-container {
+  width: 100%;
+  max-width: 414px;            /* iPhone Plus/Max系サイズ基準 */
+  background-color: var(--bg-cream);
+  min-height: 100vh;
+  position: relative;
+  padding: 0 24px 130px 24px;  /* 上下のゆったりとした余白を統一 */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* --- ヘッダー領域（右上がりのバッジ形状に修正） --- */
+.screen-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  height: 48px;
+  margin-bottom: 24px;
+}
+
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 28px;
+  text-decoration: none;
+  position: absolute;
+  left: -8px;
+  top: 14px;
+  display: flex;
+  align-items: center;
+}
+
+/* 上部中央から右上に綺麗に収まる緑バッジ */
+.header-title-badge {
+  background-color: var(--main-green);
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  padding: 8px 45px 10px 45px;
+  border-radius: 0 0 0 24px;    /* 他の画面と共通の右上がりカット仕様 */
+  box-shadow: -2px 2px 4px rgba(0,0,0,0.15);
+}
+
+/* --- メインリストカード（外側の緑フチノート） --- */
+.list-card {
+  background-color: var(--card-bg-white);
+  border: 2px solid var(--main-green);
+  border-radius: 48px;         /* カバン登録やリスト登録画面と共通の大きな角丸 */
+  padding: 32px 14px 20px 24px; /* スクロールバーを見越した内側余白 */
+  flex: 1;
+  max-height: 520px;           /* 画面内に綺麗に収まる縦幅上限 */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* 選択・優先度順のメタエリア */
+.list-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 1.5px dotted var(--light-green);
+  padding-right: 10px;
+}
+
+.action-link-blue {
+  color: var(--action-blue);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.sort-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #555555;
+  font-weight: bold;
+}
+
+/* --- 縦スクロール対応リストエリア --- */
+.scroll-list-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* 自作の細いスクロールバー */
+.scroll-list-container::-webkit-scrollbar {
+  width: 4px;
+}
+.scroll-list-container::-webkit-scrollbar-thumb {
+  background-color: #DDDDDD;
+  border-radius: 2px;
+}
+
+/* リストアイテムの1行（点線ノート風） */
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  border-bottom: 1.5px dotted var(--light-green);
+}
+
+.item-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+/* 右側の編集・削除ミニボタン */
+.item-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: #333333;
+  cursor: pointer;
+  width: 28px;
+}
+.action-btn i {
+  font-size: 14px;
+  margin-bottom: 1px;
+}
+.action-btn.delete {
+  color: var(--orange-accent); /* オレンジのゴミ箱 */
+}
+
+/* 空行と丸プラス追加ボタン */
+.empty-item {
+  justify-content: flex-start;
+}
+.add-row-btn {
+  background: none;
+  border: none;
+  color: #B5B5B5;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+}
+
+/* --- 下部フッターナビゲーション（位置を底面に固定） --- */
+.footer-nav {
+   position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }
+
+
+/* --- 画面右側の説明用吹き出し（パソコン閲覧時のみ表示） --- */
+.desktop-explanation-balloon {
+  position: absolute;
+  left: calc(50% + 230px);     /* 画面サイズに被らないように微調整 */
+  top: 100px;
+  width: 200px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #2B434D;
+  border-radius: 30px;         /* 綺麗な楕円・角丸に変更 */
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4;
+  color: #333333;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 吹き出しの左側の三角突起 */
+.desktop-explanation-balloon::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 40%;
+  border-width: 10px 15px 10px 0;
+  border-style: solid;
+  border-color: transparent #FFFFFF transparent transparent;
+  z-index: 2;
+}
+.desktop-explanation-balloon::before {
+  content: "";
+  position: absolute;
+  left: -17px;
+  top: 40%;
+  border-width: 10px 15px 10px 0;
+  border-style: solid;
+  border-color: transparent #2B434D transparent transparent;
+  z-index: 1;
+}
+
+.blue-text {
+  color: var(--action-blue);
+  text-decoration: underline;
+  font-weight: bold;
+}
+/* --- ★削除時のフェードアウト＆持ち上げアニメーション --- */
+.list-item {
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease, padding 0.3s ease, border 0.3s ease;
+  max-height: 50px; /* 通常時の行の高さの上限（42pxをカバーする値） */
+  opacity: 1;
+  overflow: hidden; /* 縮むときに中身がはみ出さないようにする */
+}
+
+/* 削除ボタンが押された瞬間に適用されるスタイル */
+.list-item.fade-out {
+  opacity: 0;
+  transform: translateX(-15px); /* 左に少しスライドしながら消える */
+  max-height: 0;                /* 高さをゼロにして下の行を持ち上げる */
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: none;          /* 点線も一緒に消す */
+}
+/* 画面幅が狭い（スマホなど）ときは右側の吹き出しを非表示にする */
+@media (max-width: 850px) {
+  .desktop-explanation-balloon {
+    display: none;
+  }
+}

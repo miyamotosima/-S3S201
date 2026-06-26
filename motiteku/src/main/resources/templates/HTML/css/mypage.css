@@ -1,0 +1,185 @@
+/* --- 全体設定 --- */
+:root {
+  --main-green: #6B8E23;
+  --bg-gray: #F0F0F0; /* 画像のすっきりした薄グレー背景 */
+  --text-dark: #333333;
+  --border-gray: #A9A9A9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 414px; /* iPhone Plus/Max系サイズ基準 */
+  background-color: var(--bg-cream);
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 70px; /* フッター分の余白 */
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ヘッダー --- */
+.mypage-header {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  position: relative;
+  margin-top: 10px;
+}
+.back-btn {
+  color: var(--text-dark);
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.mypage-header h1 {
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--text-dark);
+  margin-left: 14px;
+}
+
+/* --- メインコンテンツ --- */
+.mypage-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+}
+
+/* アバターの丸（頭と体のシルエットをFontAwesomeで再現） */
+.avatar-area {
+  margin-bottom: 18px;
+}
+.avatar-circle {
+  width: 96px;
+  height: 96px;
+  background-color: #D3D3D3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.avatar-circle i {
+  font-size: 76px;
+  color: #FAFAFA;
+  margin-bottom: -18px; /* アイコンの位置を少し下にずらしてバストアップ風に */
+}
+
+/* ユーザー情報編集ボタン */
+.edit-btn-wrap {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 24px;
+}
+.user-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 28px;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--border-gray);
+  color: #3182CE; /* 編集画面っぽい青色の文字 */
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* プロフィール項目リスト（中央寄せの並び） */
+.profile-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.profile-item {
+  text-align: center;
+  color: var(--text-dark);
+}
+.profile-item .label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.profile-item .value {
+  font-size: 15px;
+}
+
+/* --- 右側のスクロールバー風デザインインジケーター --- */
+.scrollbar-indicator {
+  position: absolute;
+  right: 14px;
+  top: 60px;
+  bottom: 180px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.arrow-up, .arrow-down {
+  font-size: 10px;
+  color: #D3D3D3;
+}
+.bar-line {
+  flex: 1;
+  width: 4px;
+  background-color: #D3D3D3;
+  border-radius: 2px;
+  margin: 4px 0;
+  position: relative;
+}
+/* 太くなっているスクロール位置の表現 */
+.bar-line::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-color: #A9A9A9;
+  border-radius: 2px;
+}
+
+/* --- 下部フッター（共通） --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }
