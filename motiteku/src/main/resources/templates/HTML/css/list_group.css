@@ -1,0 +1,244 @@
+/* --- 全体共通設定 & 変数 --- */
+:root {
+  --bg-cream: #FFF9D1;
+  --main-green: #6B8E23;
+  --light-green: #A3C9A8;
+  --card-bg-white: #F9F9F9;
+  --text-dark: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+  padding: 60px 16px 140px 16px; /* 上部ヘッダーと下部エリアの余白 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ヘッダー領域 --- */
+.screen-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 26px;
+  text-decoration: none;
+  position: absolute;
+  left: 16px;
+  top: 14px;
+}
+
+.header-title-badge {
+  background-color: var(--main-green);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 40px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- 並び替えエリア --- */
+.sort-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+.sort-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #555555;
+  font-weight: bold;
+}
+
+/* --- スクロール可能なメインコンテナ --- */
+.scroll-main-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* カード同士の間隔 */
+}
+
+/* スクロールバーの調整 */
+.scroll-main-container::-webkit-scrollbar {
+  width: 4px;
+}
+.scroll-main-container::-webkit-scrollbar-thumb {
+  background-color: #DDDDDD;
+  border-radius: 2px;
+}
+
+/* --- 目的別リストカード（枠線デザイン） --- */
+.list-card {
+  position: relative;
+  background-color: var(--card-bg-white);
+  border: 3px solid var(--main-green);
+  border-radius: 28px;
+  padding: 24px 20px 16px 20px;
+  margin-top: 10px;
+}
+
+/* カードの左上についている吹き出し風のタグ */
+.card-tag {
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  background-color: var(--main-green);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 24px;
+  border-radius: 8px 8px 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 100%, 75% 85%, 0 85%); /* 下部の小さな突起を簡易再現 */
+}
+/* 簡易的な突起デザインの調整 */
+.card-tag::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 10px;
+  border-width: 4px 4px 0 0;
+  border-style: solid;
+  border-color: var(--main-green) transparent transparent transparent;
+}
+
+/* カードの内部レイアウト */
+.card-content {
+  display: flex;
+  position: relative;
+  min-height: 70px;
+}
+
+/* 中身のアイテムの並び（2列グリッド対応） */
+.items-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 40px; /* 右側の矢印と被らないための余白 */
+  padding-top: 5px;
+}
+
+/* 2列表示にするためのクラス（旅行、学校など項目が多いとき） */
+.items-grid.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.item-text {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+/* 右側の詳細画面への矢印（太緑色） */
+.detail-link {
+  position: absolute;
+  right: 5px;
+  top: 35%;
+  color: var(--main-green);
+  font-size: 26px;
+  text-decoration: none;
+}
+
+/* 右下のゴミ箱ボタン */
+.card-delete-btn {
+  position: absolute;
+  right: 5px;
+  bottom: -5px;
+  background: none;
+  border: none;
+  color: #E28743; /* 画像の薄いオレンジのゴミ箱 */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* --- 下部ボタンエリアの固定 --- */
+.bottom-action-area {
+  position: absolute;
+  bottom: 76px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 大きな追加＋ボタン */
+.btn-add-group {
+  width: 100%;
+  height: 48px;
+  background-color: var(--main-green);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.btn-add-group:active {
+  opacity: 0.9;
+}
+
+/* --- 下部フッターナビゲーション（共通） --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }
+
+/* 追加：ゴミ箱を押したときにフワッと消えるアニメーション */
+.list-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.list-card.fade-out {
+  opacity: 0;
+  transform: scale(0.9); /* 少し小さくなりながら消える */
+}

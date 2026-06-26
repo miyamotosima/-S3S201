@@ -1,0 +1,233 @@
+/* --- 全体共通設定 & 変数 --- */
+:root {
+  --bg-cream: #FFF9D1;
+  --main-green: #6B8E23;
+  --light-green: #A3C9A8;
+  --card-bg-white: #FFFFFF;
+  --text-dark: #333333;
+  --arrow-orange: #E28743;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+  padding: 16px 14px 140px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ヘッダー --- */
+.screen-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 36px;
+  margin-bottom: 20px;
+}
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 26px;
+  text-decoration: none;
+  position: absolute;
+  left: 0;
+}
+.header-title-badge {
+  background-color: var(--main-green);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 40px;
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  top: -16px;
+}
+
+/* --- カバンプレビューカード --- */
+.bag-preview-card {
+  background-color: var(--card-bg-white);
+  border: 3px solid #F4B400; /* カレンダーと同じ黄色系の枠 */
+  border-radius: 36px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.carousel-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.bag-placeholder {
+  font-size: 140px;
+  color: #111;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  color: var(--arrow-orange);
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.bag-label-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  padding: 0 10px;
+}
+
+.color-palette-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- 詳細設定セクション --- */
+.attributes-section {
+  position: relative;
+  margin-top: 10px;
+}
+
+.category-tag {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background-color: var(--main-green);
+  color: white;
+  font-size: 14px;
+  padding: 2px 20px;
+  border-radius: 6px 6px 0 0;
+  z-index: 2;
+}
+
+.attributes-card {
+  background-color: #F4F4F4;
+  border: 3px solid var(--main-green);
+  border-radius: 30px;
+  padding: 24px 20px;
+}
+
+.attr-row {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  border-bottom: 1.5px dotted var(--light-green);
+}
+
+.attr-label {
+  font-size: 15px;
+  font-weight: bold;
+  color: #3182CE; /* ラベルの青色 */
+  width: 80px;
+}
+
+.attr-selector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.attr-selector i {
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.attr-value {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  width: 100px;
+  text-align: center;
+}
+
+.edit-pencil {
+  font-size: 16px;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* --- アクションボタン --- */
+.action-button-area {
+  position: absolute;
+  bottom: 76px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 46%;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+}
+.btn-back { background-color: #F0F0F0; color: #333; }
+.btn-submit { background-color: var(--main-green); color: #FFFFFF; }
+
+/* --- フッターナビ --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }

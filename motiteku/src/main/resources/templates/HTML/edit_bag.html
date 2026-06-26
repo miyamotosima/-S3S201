@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鞄編集</title>
+  <link rel="stylesheet" href="css/edit_bag.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container bag-register-screen">
+    
+    <header class="screen-header">
+      <a href="bag_list.html" class="back-arrow-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
+      <div class="header-title-badge">鞄編集</div>
+    </header>
+
+    <main class="main-content">
+      
+      <section class="bag-preview-card">
+        <div class="carousel-area">
+          <button class="arrow-btn left"><i class="fa-solid fa-caret-left"></i></button>
+          <div class="bag-image-wrap">
+            <i class="fa-solid fa-bag-shopping bag-placeholder"></i>
+          </div>
+          <button class="arrow-btn right"><i class="fa-solid fa-caret-right"></i></button>
+        </div>
+        
+        <div class="bag-label-edit">
+          <span>バック１</span>
+          <i class="fa-solid fa-pen"></i>
+        </div>
+
+        <div class="color-palette-icon"></div>
+      </section>
+
+      <section class="attributes-section">
+        <div class="category-tag">バック１</div>
+        
+        <div class="attributes-card">
+          <div class="attr-row">
+            <label class="attr-label">優先度：</label>
+            <div class="attr-selector">
+              <i class="fa-solid fa-caret-left"></i>
+              <span class="attr-value">中</span>
+              <i class="fa-solid fa-caret-right"></i>
+            </div>
+            <i class="fa-solid fa-pen edit-pencil"></i>
+          </div>
+
+          <div class="attr-row">
+            <label class="attr-label">種類：</label>
+            <div class="attr-selector">
+              <i class="fa-solid fa-caret-left"></i>
+              <span class="attr-value">ハンドバック</span>
+              <i class="fa-solid fa-caret-right"></i>
+            </div>
+            <i class="fa-solid fa-pen edit-pencil"></i>
+          </div>
+
+          <div class="attr-row">
+            <label class="attr-label">大きさ：</label>
+            <div class="attr-selector">
+              <i class="fa-solid fa-caret-left"></i>
+              <span class="attr-value">普通</span>
+              <i class="fa-solid fa-caret-right"></i>
+            </div>
+            <i class="fa-solid fa-pen edit-pencil"></i>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="action-button-area">
+      <a href="bag_list.html" class="btn btn-back">戻る</a>
+      <button type="button" class="btn btn-submit" onclick="location.href='bag_list.html'">登録する</button>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_register.html" class="nav-item active">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      </a>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>

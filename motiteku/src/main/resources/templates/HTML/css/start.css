@@ -1,0 +1,104 @@
+/* --- 全体共通設定 --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* アプリのコンテナ（背景色は同じクリーム色） */
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: #FFF9D1;
+  height: 100vh;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; /* 上下の要素をバランスよく配置 */
+  padding: 40px 24px;
+}
+
+/* --- 大きな丸いロゴエリア --- */
+.logo-area {
+  width: 280px;
+  height: 280px;
+  background-color: #FABE00; /* 画像の鮮やかな黄色 */
+  border-radius: 50%;
+  border: 2px solid #D6A200; /* わずかに濃いフチ線 */
+  box-shadow: 
+    inset 0 4px 10px rgba(255,255,255,0.3), /* 内側の光 */
+    0 8px 16px rgba(0,0,0,0.2);            /* 外側のしっかりとした影 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* --- ボタンエリア --- */
+.button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ボタン同士の間隔 */
+  margin-bottom: 40px;
+}
+
+/* ボタンの共通立体スタイル */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* 矢印アイコンの調整 */
+.btn i {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* 白い「はじめる」ボタン */
+.btn-white {
+  background: linear-gradient(to bottom, #ffffff 0%, #f1f1f1 40%, #e2e2e2 100%);
+  color: #333333;
+  box-shadow: 
+    0 6px 0 #b5b5b5, /* 立体感を作る下の厚み */
+    0 10px 10px rgba(0,0,0,0.15); /* 全体の影 */
+}
+
+/* 青い「サブユーザ連携」ボタン */
+.btn-blue {
+  background: linear-gradient(to bottom, #92DFFF 0%, #61C5ED 40%, #46A8D1 100%);
+  color: #222222;
+  box-shadow: 
+    0 6px 0 #2A799B, /* 立体感を作る下の厚み */
+    0 10px 10px rgba(0,0,0,0.15); /* 全体の影 */
+}
+
+/* ボタンを押したときのぷにっとしたエフェクト */
+.btn:active {
+  transform: translateY(4px); /* 下に沈む */
+  box-shadow: 
+    0 2px 0 var(--shadow-color, #777),
+    0 4px 6px rgba(0,0,0,0.1);
+}
+.btn-white:active { --shadow-color: #b5b5b5; }
+.btn-blue:active { --shadow-color: #2A799B; }

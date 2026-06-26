@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>持ち物一覧</title>
+  <link rel="stylesheet" href="css/belongings_list.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container belongings-screen">
+    
+    <header class="screen-header">
+      <a href="index.html" class="back-arrow-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
+      <div class="header-title-badge">持ち物一覧</div>
+    </header>
+
+    <main class="card list-card">
+      
+      <div class="list-meta">
+        <a href="#" class="action-link-blue">選択</a>
+        <div class="sort-trigger">
+          <i class="fa-solid fa-arrow-down-up-across-line"></i>
+          <span>優先度順</span>
+        </div>
+      </div>
+
+      <div class="scroll-list-container">
+        
+        <div class="list-item">
+          <span class="item-name">・時計</span>
+          <div class="item-actions">
+            <button class="action-btn"  onclick ="location.href='edit_belonging.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <span class="item-name">・充電器</span>
+          <div class="item-actions">
+            <button class="action-btn"onclick ="location.href='edit_belonging.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <span class="item-name">・ハンカチ</span>
+          <div class="item-actions">
+            <button class="action-btn"onclick ="location.href='edit_belonging.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <span class="item-name">・コンタクト</span>
+          <div class="item-actions">
+            <button class="action-btn"onclick ="location.href='edit_belonging.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <span class="item-name">・化粧品</span>
+          <div class="item-actions">
+            <button class="action-btn"onclick ="location.href='edit_belonging.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <span class="item-name">・アイロン</span>
+          <div class="item-actions">
+            <button class="action-btn"onclick ="location.href='edit_belonging.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+          </div>
+        </div>
+
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+        <div class="list-item empty-item"onclick ="location.href='add_belonging.html'"><button class="add-row-btn"><i class="fa-solid fa-circle-plus"></i></button></div>
+
+      </div>
+    </main>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item active">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      </a>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+  
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 画面内のすべての削除ボタン（.action-btn.delete）を取得
+      const deleteButtons = document.querySelectorAll('.action-btn.delete');
+
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+          // クリックされたボタンから一番近い親要素の行「.list-item」を探す
+          const listItem = event.target.closest('.list-item');
+          
+          if (listItem) {
+            // アニメーション用クラスを付与（横に消えながら、縦幅が縮む）
+            listItem.classList.add('fade-out');
+            
+            // アニメーション時間（0.3秒 = 300ミリ秒）が経過した後にHTMLから完全に消去
+            setTimeout(() => {
+              listItem.remove();
+            }, 300);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+</body>
+</html>

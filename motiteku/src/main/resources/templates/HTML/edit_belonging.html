@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>持ち物編集</title>
+  <link rel="stylesheet" href="css/edit_belonging.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container edit-belonging-screen">
+    
+    <main class="card main-card">
+      
+      <header class="card-header">
+        <a href="belongings_list.html" class="back-arrow-btn">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <div class="header-title-badge">持ち物編集</div>
+      </header>
+
+      <form>
+        <div class="form-group input-group">
+          <input type="text" value="時計" placeholder="持ち物名" class="item-name-input">
+        </div>
+
+        <div class="form-group select-row-group">
+          <span class="label-text">大きさ</span>
+          <div class="select-wrapper">
+            <select class="styled-select">
+              <option value="大" selected>大</option>
+              <option value="中">中</option>
+              <option value="小">小</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group select-row-group">
+          <span class="label-text">優先度</span>
+          <div class="select-wrapper">
+            <select class="styled-select">
+              <option value="高" selected>高</option>
+              <option value="中">中</option>
+              <option value="低">低</option>
+            </select>
+          </div>
+        </div>
+
+      </form>
+    </main>
+
+    <div class="action-button-area">
+      <a href="belongings_list.html" class="btn btn-back">戻る</a>
+      <button type="button" class="btn btn-save" onclick="location.href='belongings_list.html'">保存する</button>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item active">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>

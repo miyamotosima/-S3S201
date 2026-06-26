@@ -1,0 +1,325 @@
+/* --- 全体共通設定 & 変数 --- */
+:root {
+  --bg-cream: #FFF9D1;
+  --main-green: #6B8E23;
+  --light-green: #A3C9A8;
+  --card-bg-white: #F9F9F9;
+  --text-dark: #333333;
+  --gray-box: #E2E2E2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+  padding: 16px 16px 140px 16px; /* フッターとボタンエリアの余白 */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* --- メインの緑フチカード --- */
+.card {
+  background-color: var(--card-bg-white);
+  border: 3px solid var(--main-green);
+  border-radius: 36px;
+  padding: 20px 24px;
+  flex: 1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* 太い緑の戻る矢印 */
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 26px;
+  text-decoration: none;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.screen-title {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-dark);
+  font-weight: bold;
+}
+
+/* --- 各フォーム要素 --- */
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+}
+
+/* 点線の区切り */
+.title-group, .datetime-group, .section-block {
+  border-bottom: 2px dotted var(--light-green);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+
+/* タイトル入力 */
+.title-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  padding: 4px 8px;
+  outline: none;
+  color: var(--text-dark);
+}
+.title-input::placeholder {
+  color: #888888;
+}
+
+.label-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+.label-text.indent {
+  margin-left: 15px;
+  width: 70px;
+}
+
+/* --- 終日予定のトグルスイッチ --- */
+.toggle-group {
+  justify-content: space-between;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 54px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #D5D5D5;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* スイッチONの時の色（必要に応じて変更可能。画像はOFF状態） */
+input:checked + .slider {
+  background-color: var(--main-green);
+}
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* --- 日時ボックスの並び --- */
+.datetime-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.datetime-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.datetime-row .label-text {
+  width: 45px;
+}
+
+.date-box, .time-box, .select-box-styled, .tag-name-box {
+  background-color: var(--gray-box);
+  height: 28px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #111111;
+  padding: 0 10px;
+}
+
+.date-box {
+  width: 150px;
+  margin-right: 12px;
+  justify-content: center;
+}
+.time-box {
+  width: 60px;
+  justify-content: center;
+}
+
+/* 補完設定用のグレーボックス */
+.row-group {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.select-box-styled {
+  width: 180px;
+  justify-content: center;
+}
+
+.section-label {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+/* --- カラータグセクション --- */
+.tag-row {
+  margin-top: 12px;
+  margin-bottom: 0;
+  gap: 12px;
+}
+
+.circle-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.circle-indicator.blue { background-color: #0076CE; }
+.circle-indicator.purple { background-color: #802272; }
+
+.tag-name-box {
+  width: 180px;
+  justify-content: center;
+}
+
+/* 四角い選択チェックボックス */
+.custom-checkbox-container {
+  position: relative;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox-box {
+  position: absolute;
+  top: 0; left: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #FFFFFF;
+  border: 2px solid #A6A6A6;
+}
+/* 自宅用のオレンジの太フチ */
+.checkbox-box.orange-border {
+  border: 4px solid #E28743;
+}
+
+/* カラータグ追加（虹色グラデーション） */
+.add-tag-row {
+  margin-top: 16px;
+  margin-bottom: 0;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+.rainbow-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+}
+
+/* --- 下部アクションボタン（キャンセル・保存） --- */
+.action-button-area {
+  position: absolute;
+  bottom: 76px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 46%;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-cancel {
+  background-color: #F0F0F0;
+  color: #333333;
+}
+
+.btn-save {
+  background-color: var(--main-green);
+  color: #FFFFFF;
+}
+
+/* --- 下部フッターナビゲーション（前回のものと共通） --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }

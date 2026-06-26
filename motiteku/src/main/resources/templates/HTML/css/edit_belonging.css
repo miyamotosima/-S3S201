@@ -1,0 +1,204 @@
+/* --- 全体共通設定 & 変数 --- */
+:root {
+  --bg-cream: #FFF9D1;
+  --main-green: #6B8E23;
+  --light-green: #A3C9A8;
+  --card-bg-white: #F9F9F9;
+  --text-dark: #333333;
+  --gray-box: #E2E2E2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 414px;
+  background-color: var(--bg-cream);
+  height: 100vh;
+  position: relative;
+  padding: 16px 16px 140px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- メインの緑フチカード --- */
+.card {
+  background-color: var(--card-bg-white);
+  border: 3px solid var(--main-green);
+  border-radius: 36px;
+  padding: 24px;
+  flex: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  margin-bottom: 30px;
+}
+
+/* 太い緑の戻る矢印 */
+.back-arrow-btn {
+  color: var(--main-green);
+  font-size: 26px;
+  text-decoration: none;
+  position: absolute;
+  left: -8px;
+  display: flex;
+  align-items: center;
+}
+
+/* 上部中央の「持ち物編集」緑タブ */
+.header-title-badge {
+  background-color: var(--main-green);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 36px;
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  top: -27px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- 各フォーム要素 --- */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px dotted var(--light-green);
+}
+
+/* 持ち物名入力 */
+.input-group {
+  margin-top: 20px;
+}
+.item-name-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  padding: 4px 8px;
+  outline: none;
+  color: var(--text-dark);
+}
+
+/* ラベルテキスト（大きさ・優先度） */
+.label-text {
+  font-size: 18px;
+  color: var(--text-dark);
+  width: 90px;
+}
+
+/* --- プルダウンメニューのデザイン --- */
+.select-wrapper {
+  position: relative;
+  width: 90px;
+  height: 32px;
+}
+
+.styled-select {
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray-box);
+  border: none;
+  font-size: 16px;
+  color: #111111;
+  text-align-last: center;
+  padding-right: 8px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-20%);
+  border-width: 5px 4px 0 4px;
+  border-style: solid;
+  border-color: #555555 transparent transparent transparent;
+  pointer-events: none;
+}
+
+/* --- 下部アクションボタン（戻る・保存する） --- */
+.action-button-area {
+  position: absolute;
+  bottom: 76px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 46%;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+/* 戻るボタン */
+.btn-back {
+  background-color: #F0F0F0;
+  color: #333333;
+}
+
+/* 保存するボタン（登録するボタンと同じ緑色スタイル） */
+.btn-save {
+  background-color: var(--main-green);
+  color: #FFFFFF;
+}
+
+.btn:active {
+  opacity: 0.9;
+}
+
+/* --- 下部フッターナビゲーション（共通） --- */
+.footer-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  text-decoration: none;
+  color: #D0E0D0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.nav-item i { font-size: 18px; margin-bottom: 3px; }
+.nav-item span { font-size: 10px; }
+.nav-item.active { color: #FFFFFF; }

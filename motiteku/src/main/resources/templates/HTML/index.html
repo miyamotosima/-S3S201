@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スケジュール・持ち物アプリ</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <header class="user-header">
+      <div class="user-badge">
+        <span>User</span> 田中 ぴく太郎
+      </div>
+    </header>
+
+    <main class="main-content">
+      
+      <section class="card calendar-card">
+        <div class="help-icon">?</div>
+        <div class="calendar-header">
+          <span class="month-eng">April</span>
+          <span class="year-eng">2025</span>
+          <div class="month-num">4</div>
+        </div>
+        
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th class="sat">Sat</th><th class="sun">Sun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="prev-month">31</td><td>1</td><td>2</td><td>3</td><td>4</td><td class="sat">5</td><td class="sun">6</td>
+            </tr>
+            <tr>
+              <td>7</td><td>8</td><td>9</td><td class="today">10</td><td>11</td><td class="sat">12</td><td class="sun">13</td>
+            </tr>
+            <tr>
+              <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td class="sat">19</td><td class="sun">20</td>
+            </tr>
+            <tr>
+              <td>21</td><td>22</td><td class="under-green">23</td><td class="under-orange">24</td><td>25</td><td class="sat">26</td><td class="sun">27</td>
+            </tr>
+            <tr>
+              <td>28</td><td class="sun">29</td><td>30</td><td class="next-month">1</td><td class="next-month">2</td><td class="next-month">3</td><td class="next-month">4</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <button class="fab-btn" onclick="location.href='add_schedule.html'"><i class="fa-solid fa-plus"></i></button>
+      </section>
+
+      <section class="card schedule-card">
+        <div class="date-badge">2025/4/10</div>
+        <div class="help-icon">?</div>
+        
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="item-title blue-bar">学校</div>
+            <div class="item-time">8:00 〜 15:00</div>
+            <div class="item-actions">
+              <button class="action-btn" onclick="location.href='edit_schedule.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+              <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+            </div>
+          </div>
+          <div class="schedule-item">
+            <div class="item-title red-bar">歯医者</div>
+            <div class="item-time">15:30 〜 16:30</div>
+            <div class="item-actions">
+              <button class="action-btn" onclick="location.href='edit_schedule.html'"><i class="fa-solid fa-pen"></i><span>編集</span></button>
+              <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i><span>削除</span></button>
+            </div>
+          </div>
+          <div class="schedule-item empty"></div>
+        </div>
+      </section>
+
+      <section class="card belongings-card">
+        <div class="belongings-badge">持ち物リスト</div>
+        <ul class="belongings-list">
+          <li>歯ブラシ用具</li>
+          <li>ハンカチ</li>
+          <li></li>
+        </ul>
+        
+        <div class="suggestion-box">
+          <div class="suggestion-content">
+            <div class="suggestion-item">・<u>傘</u> <span class="rain-chance">降水確率 10%</span></div>
+            <div class="suggestion-item">・<u>イヤホン</u></div>
+          </div>
+          <div class="cloud-btn">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <nav class="footer-nav">
+      <a href="index.html" class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>ホーム</span>
+      </a>
+      <a href="belongings_list.html" class="nav-item">
+        <i class="fa-solid fa-book-open"></i>
+        <span>持ち物</span>
+      </a>
+      <a href="list_group.html" class="nav-item">
+        <i class="fa-solid fa-list-check"></i>
+        <span>リスト</span>
+      </a>
+      <a href="bag_list.html" class="nav-item">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>バック</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>履歴</span>
+      <a href="mypage.html" class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>マイページ</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <style>
+    /* 予定アイテムに滑らかな変化を適用 */
+    .schedule-item {
+      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+      max-height: 100px; /* 通常時のゆとりを持たせた高さ */
+      opacity: 1;
+      overflow: hidden;
+    }
+    /* 削除ボタンが押されたときの中間状態 */
+    .schedule-item.fade-out {
+      opacity: 0;
+      transform: translateX(-20px); /* 左にスライドしながら消える効果 */
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      border: none;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 画面内のすべての削除ボタン（.action-btn.delete）を取得
+      const deleteButtons = document.querySelectorAll('.action-btn.delete');
+
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+          // クリックされたボタンから一番近い親要素の予定行「.schedule-item」を探す
+          const scheduleItem = event.target.closest('.schedule-item');
+          
+          if (scheduleItem) {
+            // アニメーション用クラスを付与（これでフッと消えつつ、高さが縮む）
+            scheduleItem.classList.add('fade-out');
+            
+            // アニメーション時間（0.3秒 = 300ミリ秒）が経過した後にHTMLから完全に消去
+            setTimeout(() => {
+              scheduleItem.remove();
+            }, 300);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
